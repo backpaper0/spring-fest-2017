@@ -6,6 +6,7 @@
 * sample2 ... クライアントと、認可サーバー
 * sample3 ... クライアントと、認可サーバーと、リソースサーバー
 * sample4 ... Spring Security 5のクライアント
+* [sample5](./sample5/README.md) ... 認可サーバー兼リソースサーバーをいろいろカスタマイズしたやつ
 
 ## ぜんぶgradlew eclipseする
 
