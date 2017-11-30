@@ -51,7 +51,7 @@ class Hello2Config extends WebSecurityConfigurerAdapter {
                 .authorizationGrantType(AuthorizationGrantType.AUTHORIZATION_CODE)
                 .authorizationUri("http://localhost:9090/authz/oauth/authorize")
                 .tokenUri("http://localhost:9090/authz/oauth/token")
-                .redirectUri("http://localhost:8080/login/oauth2/code/hello")
+                .redirectUriTemplate("http://localhost:8080/login/oauth2/code/hello")
                 .userInfoUri("http://localhost:9090/authz/userinfo")
                 .userNameAttributeName("name")
                 .build();
