@@ -84,7 +84,7 @@ curl https://start.spring.io/starter.tgz \
      -d dependencies=cloud-oauth2 \
      -d baseDir=authz \
      -d name=authz \
-     -d type=gradle-project \
+     -d type=maven-project \
      -d bootVersion=1.5.8.RELEASE | tar -xzvf -
 ```
 
@@ -101,7 +101,7 @@ curl https://start.spring.io/starter.tgz \
 *    -d dependencies=cloud-oauth2 \
      -d baseDir=authz \
      -d name=authz \
-     -d type=gradle-project \
+     -d type=maven-project \
      -d bootVersion=1.5.8.RELEASE | tar -xzvf -
 ```
 
@@ -287,7 +287,7 @@ curl https://start.spring.io/starter.tgz \
      -d dependencies=cloud-oauth2 \
      -d baseDir=hello \
      -d name=hello \
-     -d type=gradle-project \
+     -d type=maven-project \
      -d bootVersion=1.5.8.RELEASE | tar -xzvf -
 ```
 
@@ -988,7 +988,7 @@ curl https://start.spring.io/starter.tgz \
 *    -d dependencies=web,security \
      -d baseDir=hello2 \
      -d name=hello2 \
-     -d type=gradle-project \
+     -d type=maven-project \
      -d bootVersion=2.0.0.M6 | tar -xzvf -
 ```
 
@@ -1000,13 +1000,17 @@ curl https://start.spring.io/starter.tgz \
 
 ### OAuth 2.0ログインの準備
 
-`build.gradle`に依存を足す
+`pom.xml`に依存を足す
 
 ```none
-compile('org.springframework.security:'
-  + 'spring-security-oauth2-client')
-compile('org.springframework.security:'
-  + 'spring-security-oauth2-jose')
+<dependency>
+	<groupId>org.springframework.security</groupId>
+	<artifactId>spring-security-oauth2-client</artifactId>
+</dependency>
+<dependency>
+	<groupId>org.springframework.security</groupId>
+	<artifactId>spring-security-oauth2-jose</artifactId>
+</dependency>
 ```
 
 ---
