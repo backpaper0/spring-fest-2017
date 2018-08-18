@@ -2,15 +2,10 @@ package com.example.demo;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.core.Authentication;
-import org.springframework.security.oauth2.client.registration.ClientRegistration;
-import org.springframework.security.oauth2.client.registration.ClientRegistrationRepository;
-import org.springframework.security.oauth2.client.registration.InMemoryClientRegistrationRepository;
-import org.springframework.security.oauth2.core.AuthorizationGrantType;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -37,24 +32,25 @@ class Hello2Config extends WebSecurityConfigurerAdapter {
         http.authorizeRequests()
                 .anyRequest().authenticated()
                 .and().oauth2Login()
-                .clientRegistrationRepository(clientRegistrationRepository());
+        //                .clientRegistrationRepository(clientRegistrationRepository())
+        ;
     }
 
-    @Bean
-    public ClientRegistrationRepository clientRegistrationRepository() {
-        final ClientRegistration registration = ClientRegistration
-                .withRegistrationId("hello")
-                .clientName("HELLO")
-                .clientId("hello")
-                .clientSecret("secret")
-                .scope("user")
-                .authorizationGrantType(AuthorizationGrantType.AUTHORIZATION_CODE)
-                .authorizationUri("http://localhost:9090/authz/oauth/authorize")
-                .tokenUri("http://localhost:9090/authz/oauth/token")
-                .redirectUriTemplate("http://localhost:8080/login/oauth2/code/hello")
-                .userInfoUri("http://localhost:9090/authz/userinfo")
-                .userNameAttributeName("name")
-                .build();
-        return new InMemoryClientRegistrationRepository(registration);
-    }
+    //    @Bean
+    //    public ClientRegistrationRepository clientRegistrationRepository() {
+    //        final ClientRegistration registration = ClientRegistration
+    //                .withRegistrationId("hello")
+    //                .clientName("HELLO")
+    //                .clientId("hello")
+    //                .clientSecret("secret")
+    //                .scope("user")
+    //                .authorizationGrantType(AuthorizationGrantType.AUTHORIZATION_CODE)
+    //                .authorizationUri("http://localhost:9090/authz/oauth/authorize")
+    //                .tokenUri("http://localhost:9090/authz/oauth/token")
+    //                .redirectUriTemplate("http://localhost:8080/login/oauth2/code/hello")
+    //                .userInfoUri("http://localhost:9090/authz/userinfo")
+    //                .userNameAttributeName("name")
+    //                .build();
+    //        return new InMemoryClientRegistrationRepository(registration);
+    //    }
 }
