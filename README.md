@@ -10,9 +10,16 @@
 * sample4 ... Spring Security 5のクライアント
 * [sample5](./sample5/README.md) ... 認可サーバー兼リソースサーバーをいろいろカスタマイズしたやつ
 
-## ぜんぶgradlew eclipseする
+## ぜんぶビルドする
 
 ```console
-for i in `ls -d sample*/*`;do $i/gradlew -p $i eclipse;done
+for i in `git ls-files|grep pom\.xml`; do mvn -f $i clean package; done
+```
+
+## ぜんぶのSpring Bootのバージョンを上げる
+
+```console
+git grep -l 1\.5\.14\|xargs sed -i '' -e 's/1\.5\.14\/1.5.15/g'
+git grep -l 2\.0\.3\|xargs sed -i '' -e 's/2\.0\.3\/2.0.4/g'
 ```
 
